@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesi Penyewaan Mobil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #48525a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Lengkapi Data</h2>
+        <form id="rentalForm">
+            <div class="form-group">
+                <label for="name">Nama Penyewa</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="car">Pilih Mobil</label>
+                <select id="car" name="car" required>
+                    <option value="">-- Pilih Mobil --</option>
+                    <option value="Toyota Avanza">Toyota Avanza - Rp 400.000/hari</option>
+                    <option value="Honda Brio">Honda Brio - Rp 350.000/hari</option>
+                    <option value="Innova Reborn">Innova Reborn - Rp 600.000/hari</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Tanggal Mulai</label>
+                <input type="date" id="startDate" name="startDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">Tanggal Selesai</label>
+                <input type="date" id="endDate" name="endDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ktp">Upload Fotocopy KTP</label>
+                <input type="file" id="ktp" name="ktp" accept="image/*,application/pdf" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sim">Upload Fotocopy SIM</label>
+                <input type="file" id="sim" name="sim" accept="image/*,application/pdf" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Sewa Mobil</button>
+        </form>
+
+        <div id="message" class="message" style="display: none;">Penyewaan Berhasil!</div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer mt-5 p-3 text-center">
+        <p>Solusi transportasi terpercaya Anda - Klik <a href="kontak.html" style="color: grey;">di sini</a> untuk Informasi Lebih Lanjut</p>
+    </footer>
+    <script>
+        const rentalForm = document.getElementById('rentalForm');
+        const message = document.getElementById('message');
+
+        rentalForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simulasi proses penyewaan (bisa diganti dengan logika backend jika perlu)
+            const name = document.getElementById('name').value;
+            const car = document.getElementById('car').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            if (name && car && startDate && endDate) {
+                message.style.display = 'block';
+                message.textContent = `Terima kasih ${name}, Anda telah berhasil menyewa ${car} dari ${startDate} hingga ${endDate}.`;
+
+                // Reset form setelah submit
+                rentalForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>

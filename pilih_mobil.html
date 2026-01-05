@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #414a52;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFF;
+            margin-bottom: 40px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: scale(1.05);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-card h3 {
+            margin: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .car-card p {
+            margin: 0 15px 15px;
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .select-btn {
+            display: block;
+            text-align: center;
+            margin: 15px;
+            padding: 10px 15px;
+            background: #2C3E50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .select-btn:hover {
+            background: #2C3E50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Car</h1>
+        <div class="car-grid">
+            <div class="car-card">
+                <img src="image/images.jpeg" alt="Car 1">
+                <h3>Avanza</h3>
+                <p>Comfortable and stylish, perfect for city drives.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+            <div class="car-card">
+                <img src="image/ayla.jpeg" alt="Car 2">
+                <h3>Ayla</h3>
+                <p>Spacious and powerful, great for family trips.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+            <div class="car-card">
+                <img src="image/vios.jpeg" alt="Car 3">
+                <h3>Sedan</h3>
+                <p>Stylish and fun, perfect for sunny days.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+            <div class="car-card">
+                <img src="image/BMW.jpeg" alt="Car 4">
+                <h3>BMW</h3>
+                <p>Strong and reliable, ideal for heavy-duty tasks.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+            <div class="car-card">
+                <img src="image/images_lambo.jpeg" alt="Car 4">
+                <h3>Lamborghini</h3>
+                <p>Strong and reliable, ideal for heavy-duty tasks.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+            <div class="car-card">
+                <img src="image/img_alpard.jpeg" alt="Car 4">
+                <h3>Alphard</h3>
+                <p>Strong and reliable, ideal for heavy-duty tasks.</p>
+                <a href="Halaman_penyewaan.html" class="select-btn">Select</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer mt-5 p-3 text-center">
+        <p>Solusi transportasi terpercaya Anda - Klik <a href="#kontak.html" style="color: grey;">di sini</a> untuk Informasi Lebih Lanjut</p>
+    </footer>
+</body>
+</html>

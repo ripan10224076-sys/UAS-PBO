@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Mobil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html{
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #48525a; /* Biru super tua */
+            color: beige; /* Beige */
+        }
+
+        .navbar {
+            background-color: #2C3E50;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #FAF4E3 !important;
+        }
+
+        .btn-custom {
+            background-color: white;
+            color: grey;
+        }
+
+        .hero-section a{
+            text-decoration: none;
+            color: #2C3E50;
+        }
+
+        .btn-custom:hover {
+            background-color: grey;
+            text-decoration: none;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 5rem 1rem;
+            background-color: #2C3E50;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .features-section {
+            padding: 4rem 1rem;
+        }
+
+        .feature-card {
+            background-color: #2C3E50;
+            border-radius: 8px;
+            padding: 2rem;
+            color: #FAF4E3;
+        }
+
+        .about-section {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #2C3E50; /* Biru tua */
+            border-radius: 10px;
+        }
+
+        .about-section h2 {
+            color: #F5F5DC;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+
+    
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="app.showPage('home')">Rental Mobil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="app.showPage('home')">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="app.showPage('about')">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pilih_mobil.html" >Katalog</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link" href="kontak.html" >Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dynamic Content -->
+    <div id="content"></div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 p-3 text-center">
+        <p>Solusi transportasi terpercaya Anda - Klik <a href="kontak.html" style="color: grey;">di sini</a> untuk Informasi Lebih Lanjut</p>
+    </footer>
+
+    <script>
+        // JavaScript OOP Class
+        class RentalMobilApp {
+            constructor() {
+                this.pages = {
+                    home: this.renderHome,
+                    about: this.renderAbout
+                };
+                this.init();
+            }
+
+            init() {
+                this.showPage('home'); // Default page
+            }
+
+            showPage(page) {
+                const content = document.getElementById('content');
+                content.innerHTML = this.pages[page] ? this.pages[page]() : '<p>Halaman tidak ditemukan!</p>';
+            }
+
+            renderHome() {
+                return `
+                    <div class="container">
+                        <div class="hero-section">
+                            <h1 class="display-4">Selamat Datang di Rental Mobil</h1>
+                            <p class="lead">Solusi terbaik untuk semua kebutuhan transportasi Anda</p>
+                            <button class="btn btn-custom btn-lg mt-3" onclick="alert('Terima kasih telah memilih kami!')"><a href="pilih_mobil.html">Pesan Sekarang</a></button>
+                        </div>
+                    </div>
+                        <div id="carouselExampleIndicators" class="carousel slide mt-5">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="image/car4.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="image/car2.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="image/car5.jpg" class="card-img-top" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="features-section row mt-5">
+                            <div class="col-md-4">
+                                <div class="feature-card">
+                                    <h3>Kendaraan Terbaik</h3>
+                                    <p>Pilih dari berbagai jenis kendaraan berkualitas tinggi sesuai kebutuhan Anda.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-card">
+                                    <h3>Harga Kompetitif</h3>
+                                    <p>Kami menawarkan harga terbaik tanpa mengorbankan kualitas layanan.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-card">
+                                    <h3>Layanan 24/7</h3>
+                                    <p>Tim kami siap membantu Anda kapan saja, di mana saja.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            renderAbout() {
+                return `
+                    <div class="container about-section">
+                        <h2>Tentang Kami</h2>
+                        <p>
+                            Rental Mobil adalah layanan penyewaan kendaraan terpercaya yang telah melayani pelanggan sejak 2010. 
+                            Kami menyediakan berbagai jenis mobil, mulai dari sedan, SUV, hingga MPV, yang dapat disesuaikan 
+                            dengan kebutuhan perjalanan Anda, baik untuk keperluan bisnis maupun liburan.
+                        </p>
+                        <p>
+                            Dengan komitmen untuk memberikan kenyamanan dan keamanan, kami memastikan setiap kendaraan selalu dalam kondisi prima.
+                            Staf kami yang ramah dan profesional siap membantu Anda kapan saja. 
+                            Kepuasan pelanggan adalah prioritas utama kami.
+                        </p>
+                        <h3>Kenapa Memilih Kami?</h3>
+                        <ul>
+                            <li>Armada mobil yang terawat dan berkualitas</li>
+                            <li>Harga sewa kompetitif</li>
+                            <li>Pelayanan pelanggan 24/7</li>
+                            <li>Sistem pemesanan yang mudah dan cepat</li>
+                        </ul>
+                    </div>`;
+            }
+        }
+
+        const app = new RentalMobilApp();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

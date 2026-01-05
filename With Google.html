@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dengan Email</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4CAF50, #81C784);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .login-container {
+            background: #ffffff;
+            color: #333;
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        .login-container p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+        }
+
+        .login-container input:focus {
+            border-color: #4CAF50;
+        }
+
+        .login-container button {
+            width: 75%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login dengan Email</h1>
+        <p>Masukkan email dan password Anda untuk melanjutkan.</p>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Masukkan Email" required>
+            <input type="password" id="password" placeholder="Masukkan Password" required>
+            <a href="Beranda.html" class="a-button"><button class="btn-login" type="submit">Login</button></a>
+        </form>
+        <div class="error-message" id="errorMessage">Email atau Password salah. Coba lagi!</div>
+    </div>
+
+    <script>
+        // Simulasi data pengguna
+        const userData = {
+            email: "wajdi@example.com",
+            password: "123456"
+        };
+
+        // Event listener untuk login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah reload halaman
+
+            // Ambil input email dan password
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+
+            // Verifikasi email dan password
+            if (emailInput === userData.email && passwordInput === userData.password) {
+                alert("Login berhasil!");
+                window.location.href = "Beranda.html"; // Ganti dengan halaman tujuan setelah login
+            } else {
+                const errorMessage = document.getElementById("errorMessage");
+                errorMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

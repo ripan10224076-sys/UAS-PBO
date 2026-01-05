@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #48525a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background: #fff;
+            padding: 20px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .register-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .register-btn {
+            width: 50%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .a-button {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .register-btn:hover {
+            background-color: #218838;
+        }
+
+        .register-container p {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: black;
+        }
+
+        .register-container p a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .register-container p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="register-form" action="Beranda.html" method="POST">
+            <div class="form-group">
+                <label for="fullname">User Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Tanggal Lahir</label>
+                <input type="date" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <p id="error-message" class="error-message">Password tidak sesuai!</p>
+            <div type="border-regist">
+            <button type="submit" class="register-btn"><a href="Beranda.html" class="a-button">Register</a></button>
+            </div>
+        </form>
+        <p>Sudah punya akun? Login <a href="index.html">disini</a></p>
+    </div>
+
+    <script>
+        // Validasi form
+        const form = document.getElementById('register-form');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm-password');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function (e) {
+            if (password.value !== confirmPassword.value) {
+                e.preventDefault(); // Mencegah pengiriman form
+                errorMessage.style.display = 'block'; // Tampilkan pesan error
+            } else {
+                errorMessage.style.display = 'none'; // Sembunyikan pesan error jika validasi berhasil
+            }
+        });
+    </script>
+</body>
+</html>
